@@ -3,6 +3,23 @@
   
     
     <entry>
+      <title>对Angular模块的理解</title>
+      <link href="/2018/09/18/%E5%AF%B9Angular%E6%A8%A1%E5%9D%97%E7%9A%84%E7%90%86%E8%A7%A3/"/>
+      <url>/2018/09/18/%E5%AF%B9Angular%E6%A8%A1%E5%9D%97%E7%9A%84%E7%90%86%E8%A7%A3/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Angular模块简介"><a href="#Angular模块简介" class="headerlink" title="Angular模块简介"></a>Angular模块简介</h1><p>Angular 应用是模块化的，它拥有自己的模块化系统，称作 <em>NgModule</em>。 一个 NgModule 就是一个容器，用于存放一些内聚的代码块，这些代码块专注于某个应用领域、某个工作流或一组紧密相关的功能。 它可以包含一些组件、服务提供商或其它代码文件，其作用域由包含它们的 NgModule 定义。 它还可以导入一些由其它模块中导出的功能，并导出一些指定的功能供其它 NgModule 使用。</p><p>每个 Angular 应用都至少有一个 NgModule 类，也就是<a href="https://www.angular.cn/guide/bootstrapping" target="_blank" rel="noopener">根模块</a>，它习惯上命名为 <code>AppModule</code>，并位于一个名叫 <code>app.module.ts</code>的文件中。<em>引导</em>这个根模块就可以启动你的应用。</p><p>虽然小型的应用可能只有一个 NgModule，不过大多数应用都会有很多<em>特性模块</em>。应用的<em>根模块</em>之所以叫根模块，是因为它可以包含任意深度的层次化子模块。</p><h2 id="NgModule-元数据"><a href="#NgModule-元数据" class="headerlink" title="@NgModule 元数据"></a><code>@NgModule</code> 元数据</h2><p>NgModule 是一个带有 <code>@NgModule</code> 装饰器的类。<code>@NgModule</code> 装饰器是一个函数，它接受一个元数据对象，该对象的属性用来描述这个模块。其中最重要的属性如下。</p><ul><li><code>declarations</code>（可声明对象表） —— 那些属于本 NgModule 的<a href="https://www.angular.cn/guide/architecture-components" target="_blank" rel="noopener">组件</a>、<em>指令</em>、<em>管道</em>。</li><li><code>exports</code>（导出表） —— 那些能在其它模块的<em>组件模板</em>中使用的可声明对象的子集。</li><li><code>imports</code>（导入表） —— 那些导出了<em>本</em>模块中的组件模板所需的类的其它模块。</li><li><code>providers</code> —— 本模块向全局服务中贡献的那些<a href="https://www.angular.cn/guide/architecture-services" target="_blank" rel="noopener">服务</a>的创建器。 这些服务能被本应用中的任何部分使用。（你也可以在组件级别指定服务提供商，这通常是首选方式。）</li><li><code>bootstrap</code> —— 应用的主视图，称为<em>根组件</em>。它是应用中所有其它视图的宿主。只有<em>根模块</em>才应该设置这个 <code>bootstrap</code> 属性。</li><li><code>entryComponents</code> —— 描述 entryComponents 时，我们需要先谈angular-cli的摇树优化，什么意思呢？当编译生产环境代码时 ng build –prod，angular-cli会自动对那一些完全没有被用到模板里的组件、管道等等自动排除掉，那怕是你在 declarations 声明过，这样才可以很大幅度减少文件大小。所以有一些组件的确不会出现在模板中，但又会用到，比如某个组件是放在模态框里面，而模态框则是通过动态加载的方式来初始化组件，这个时候这些组件如果不在 entryComponents 中定义的话就会被排除掉。</li></ul>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> angular </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>根据promiseA+实现一个自己的promise</title>
       <link href="/2018/09/18/%E6%A0%B9%E6%8D%AEpromiseA-%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E8%87%AA%E5%B7%B1%E7%9A%84promise/"/>
       <url>/2018/09/18/%E6%A0%B9%E6%8D%AEpromiseA-%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E8%87%AA%E5%B7%B1%E7%9A%84promise/</url>
