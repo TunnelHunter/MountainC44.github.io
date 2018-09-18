@@ -33,8 +33,8 @@ app.service('ajaxService', function () {
 
 
     // var ROOT_HTTP = '../../../../GCPI';
-    var ROOT_HTTP = 'http://211.161.10.70:19091/carnival/question'; //新创建的测试ip
-
+    // var ROOT_HTTP = 'http://211.161.10.70:19091/carnival/question'; //新创建的测试ip
+    var ROOT_HTTP = 'https://www.easy-mock.com/mock/5b88b7ab76b79510db91766a/example';
 
     /**
      * 查询已选择问题
@@ -67,10 +67,10 @@ app.service('ajaxService', function () {
      * 添加新问题
      * @type {string}
      */
-    // var addQuestion = ROOT_HTTP + '/addQuestion';
-    // this.addQuestion = function () {
-    //     return addQuestion;
-    // };
+        // var addQuestion = ROOT_HTTP + '/addQuestion';
+        // this.addQuestion = function () {
+        //     return addQuestion;
+        // };
     var addQuestion = ROOT_HTTP + '/xxx';
     this.addQuestion = function () {
         return addQuestion;
@@ -80,10 +80,10 @@ app.service('ajaxService', function () {
      * 删除问题
      * @type {string}
      */
-    // var deleteQuestions = ROOT_HTTP + '/deleteQuestions/';
-    // this.deleteQuestions = function () {
-    //     return deleteQuestions;
-    // };
+        // var deleteQuestions = ROOT_HTTP + '/deleteQuestions/';
+        // this.deleteQuestions = function () {
+        //     return deleteQuestions;
+        // };
     var deleteQuestions = ROOT_HTTP + '/xxx';
     this.deleteQuestions = function () {
         return deleteQuestions;
@@ -94,10 +94,10 @@ app.service('ajaxService', function () {
      * 移入移除问题
      * @type {string}
      */
-    // var moveQuestions = ROOT_HTTP + '/moveQuestions';
-    // this.moveQuestions = function () {
-    //     return moveQuestions;
-    // };
+        // var moveQuestions = ROOT_HTTP + '/moveQuestions';
+        // this.moveQuestions = function () {
+        //     return moveQuestions;
+        // };
     var moveQuestions = ROOT_HTTP + '/xxx';
     this.moveQuestions = function () {
         return moveQuestions;
@@ -107,15 +107,14 @@ app.service('ajaxService', function () {
      * 移入移除问题
      * @type {string}
      */
-    // var updateQuestion = ROOT_HTTP + '/updateQuestion';
-    // this.updateQuestion = function () {
-    //     return updateQuestion;
-    // };
+        // var updateQuestion = ROOT_HTTP + '/updateQuestion';
+        // this.updateQuestion = function () {
+        //     return updateQuestion;
+        // };
     var updateQuestion = ROOT_HTTP + '/xxx';
     this.updateQuestion = function () {
         return updateQuestion;
     };
-
 
 
 });
