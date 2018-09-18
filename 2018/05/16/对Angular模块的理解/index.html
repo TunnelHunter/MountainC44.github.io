@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="Angular模块简介Angular 应用是模块化的，它拥有自己的模块化系统，称作 NgModule。 一个 NgModule 就是一个容器，用于存放一些内聚的代码块，这些代码块专注于某个应用领域、某个工作流或一组紧密相关的功能。 它可以包含一些组件、服务提供商或其它代码文件，其作用域由包含它们的 NgModule 定义。 它还可以导入一些由其它模块中导出的功能，并导出一些指定的功能供其它 NgM">
+<meta name="keywords" content="angular">
+<meta property="og:type" content="article">
+<meta property="og:title" content="对Angular模块的理解">
+<meta property="og:url" content="http://mountainc44.com/2018/05/16/对Angular模块的理解/index.html">
+<meta property="og:site_name" content="MountainC44">
+<meta property="og:description" content="Angular模块简介Angular 应用是模块化的，它拥有自己的模块化系统，称作 NgModule。 一个 NgModule 就是一个容器，用于存放一些内聚的代码块，这些代码块专注于某个应用领域、某个工作流或一组紧密相关的功能。 它可以包含一些组件、服务提供商或其它代码文件，其作用域由包含它们的 NgModule 定义。 它还可以导入一些由其它模块中导出的功能，并导出一些指定的功能供其它 NgM">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-09-18T16:30:02.246Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="对Angular模块的理解">
+<meta name="twitter:description" content="Angular模块简介Angular 应用是模块化的，它拥有自己的模块化系统，称作 NgModule。 一个 NgModule 就是一个容器，用于存放一些内聚的代码块，这些代码块专注于某个应用领域、某个工作流或一组紧密相关的功能。 它可以包含一些组件、服务提供商或其它代码文件，其作用域由包含它们的 NgModule 定义。 它还可以导入一些由其它模块中导出的功能，并导出一些指定的功能供其它 NgM">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/logo.png">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/logo.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/logo.png">
+          
+        
+    
+    <!-- title -->
+    <title>对Angular模块的理解</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- rss -->
+    
+    
+</head>
+
+<body>
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">主页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/posts/">文章</a></li>
+         
+          <li><a href="/Search/">搜索</a></li>
+         
+          <li><a href="http://github.com/mountainc44">项目</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2018/07/19/世界与你，从心开始/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2018/04/06/css图片居中方法总结/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://mountainc44.com/2018/05/16/对Angular模块的理解/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://mountainc44.com/2018/05/16/对Angular模块的理解/&text=对Angular模块的理解"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://mountainc44.com/2018/05/16/对Angular模块的理解/&title=对Angular模块的理解"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://mountainc44.com/2018/05/16/对Angular模块的理解/&is_video=false&description=对Angular模块的理解"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=对Angular模块的理解&body=Check out this article: http://mountainc44.com/2018/05/16/对Angular模块的理解/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://mountainc44.com/2018/05/16/对Angular模块的理解/&title=对Angular模块的理解"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://mountainc44.com/2018/05/16/对Angular模块的理解/&title=对Angular模块的理解"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://mountainc44.com/2018/05/16/对Angular模块的理解/&title=对Angular模块的理解"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://mountainc44.com/2018/05/16/对Angular模块的理解/&title=对Angular模块的理解"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://mountainc44.com/2018/05/16/对Angular模块的理解/&name=对Angular模块的理解&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Angular模块简介"><span class="toc-number">1.</span> <span class="toc-text">Angular模块简介</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#NgModule-元数据"><span class="toc-number">1.1.</span> <span class="toc-text">@NgModule 元数据</span></a></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index width mx-auto px2 my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        对Angular模块的理解
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">MountainC44</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2018-05-15T17:05:30.000Z" itemprop="datePublished">2018-05-16</time>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/angular/">angular</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h1 id="Angular模块简介"><a href="#Angular模块简介" class="headerlink" title="Angular模块简介"></a>Angular模块简介</h1><p>Angular 应用是模块化的，它拥有自己的模块化系统，称作 <em>NgModule</em>。 一个 NgModule 就是一个容器，用于存放一些内聚的代码块，这些代码块专注于某个应用领域、某个工作流或一组紧密相关的功能。 它可以包含一些组件、服务提供商或其它代码文件，其作用域由包含它们的 NgModule 定义。 它还可以导入一些由其它模块中导出的功能，并导出一些指定的功能供其它 NgModule 使用。</p>
+<p>每个 Angular 应用都至少有一个 NgModule 类，也就是<a href="https://www.angular.cn/guide/bootstrapping" target="_blank" rel="noopener">根模块</a>，它习惯上命名为 <code>AppModule</code>，并位于一个名叫 <code>app.module.ts</code>的文件中。<em>引导</em>这个根模块就可以启动你的应用。</p>
+<p>虽然小型的应用可能只有一个 NgModule，不过大多数应用都会有很多<em>特性模块</em>。应用的<em>根模块</em>之所以叫根模块，是因为它可以包含任意深度的层次化子模块。</p>
+<h2 id="NgModule-元数据"><a href="#NgModule-元数据" class="headerlink" title="@NgModule 元数据"></a><code>@NgModule</code> 元数据</h2><p>NgModule 是一个带有 <code>@NgModule</code> 装饰器的类。<code>@NgModule</code> 装饰器是一个函数，它接受一个元数据对象，该对象的属性用来描述这个模块。其中最重要的属性如下。</p>
+<ul>
+<li><code>declarations</code>（可声明对象表） —— 那些属于本 NgModule 的<a href="https://www.angular.cn/guide/architecture-components" target="_blank" rel="noopener">组件</a>、<em>指令</em>、<em>管道</em>。</li>
+<li><code>exports</code>（导出表） —— 那些能在其它模块的<em>组件模板</em>中使用的可声明对象的子集。</li>
+<li><code>imports</code>（导入表） —— 那些导出了<em>本</em>模块中的组件模板所需的类的其它模块。</li>
+<li><code>providers</code> —— 本模块向全局服务中贡献的那些<a href="https://www.angular.cn/guide/architecture-services" target="_blank" rel="noopener">服务</a>的创建器。 这些服务能被本应用中的任何部分使用。（你也可以在组件级别指定服务提供商，这通常是首选方式。）</li>
+<li><code>bootstrap</code> —— 应用的主视图，称为<em>根组件</em>。它是应用中所有其它视图的宿主。只有<em>根模块</em>才应该设置这个 <code>bootstrap</code> 属性。</li>
+<li><code>entryComponents</code> —— 描述 entryComponents 时，我们需要先谈angular-cli的摇树优化，什么意思呢？当编译生产环境代码时 ng build –prod，angular-cli会自动对那一些完全没有被用到模板里的组件、管道等等自动排除掉，那怕是你在 declarations 声明过，这样才可以很大幅度减少文件大小。所以有一些组件的确不会出现在模板中，但又会用到，比如某个组件是放在模态框里面，而模态框则是通过动态加载的方式来初始化组件，这个时候这些组件如果不在 entryComponents 中定义的话就会被排除掉。</li>
+</ul>
+
+  </div>
+</article>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">主页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/posts/">文章</a></li>
+         
+          <li><a href="/Search/">搜索</a></li>
+         
+          <li><a href="http://github.com/mountainc44">项目</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Angular模块简介"><span class="toc-number">1.</span> <span class="toc-text">Angular模块简介</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#NgModule-元数据"><span class="toc-number">1.1.</span> <span class="toc-text">@NgModule 元数据</span></a></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://mountainc44.com/2018/05/16/对Angular模块的理解/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://mountainc44.com/2018/05/16/对Angular模块的理解/&text=对Angular模块的理解"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://mountainc44.com/2018/05/16/对Angular模块的理解/&title=对Angular模块的理解"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://mountainc44.com/2018/05/16/对Angular模块的理解/&is_video=false&description=对Angular模块的理解"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=对Angular模块的理解&body=Check out this article: http://mountainc44.com/2018/05/16/对Angular模块的理解/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://mountainc44.com/2018/05/16/对Angular模块的理解/&title=对Angular模块的理解"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://mountainc44.com/2018/05/16/对Angular模块的理解/&title=对Angular模块的理解"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://mountainc44.com/2018/05/16/对Angular模块的理解/&title=对Angular模块的理解"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://mountainc44.com/2018/05/16/对Angular模块的理解/&title=对Angular模块的理解"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://mountainc44.com/2018/05/16/对Angular模块的理解/&name=对Angular模块的理解&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      <ul>
+        <li id="toc"><a class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
+        <li id="share"><a class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
+        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
+        <li id="menu"><a class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2018 MountainC44
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">主页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/posts/">文章</a></li>
+         
+          <li><a href="/Search/">搜索</a></li>
+         
+          <li><a href="http://github.com/mountainc44">项目</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="/lib/meslo-LG/styles.css">
+<link rel="stylesheet" href="/lib/justified-gallery/justifiedGallery.min.css">
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
