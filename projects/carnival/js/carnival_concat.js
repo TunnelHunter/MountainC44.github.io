@@ -33,7 +33,7 @@ app.service('ajaxService', function () {
 
 
     // var ROOT_HTTP = '../../../../GCPI';
-    var ROOT_HTTP = 'https://211.161.10.70:19091/carnival/question'; //新创建的测试ip
+    var ROOT_HTTP = 'http://211.161.10.70:19091/carnival/question'; //新创建的测试ip
 
 
     /**
