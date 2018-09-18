@@ -145,7 +145,7 @@ app.run(['$rootScope', 'ajaxService', '$http', '$timeout'
                 return;
             } else {
                 if (localStorage.getItem("username") == null || localStorage.getItem("username") === '') {
-                    window.location.href = '/login.html#login';
+                    window.location.href = '../../../html/login.html#login';
                 }
             }
         };
